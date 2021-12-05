@@ -3,13 +3,13 @@ name: Trigger Lighthouse run on a CRON Schedule
 
 on:
   schedule:
-    # Runs "At every 5th minute" (see https://crontab.guru)
-    - cron: '*/5 * * * *'
+    # Runs "every hour" (see https://crontab.guru)
+    - cron: '0 * * * *'
 jobs:
   build:
     name: Trigger Lighthouse
     runs-on: ubuntu-latest
     steps:
       - name: cURL request
-        # Hit the webhook endpoint to rebuild  from the "main" branch
+        # Hit the endpoint to run lighthouse
         run: curl https://www.google.com
