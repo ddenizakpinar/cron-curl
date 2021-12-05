@@ -1,0 +1,15 @@
+# .github/workflows/scheduled-triggerer.yml
+name: Trigger Lighthouse run on a CRON Schedule
+
+on:
+  schedule:
+    # Runs "At every 5th minute" (see https://crontab.guru)
+    - cron: '*/5 * * * *'
+jobs:
+  build:
+    name: Trigger Lighthouse
+    runs-on: ubuntu-latest
+    steps:
+      - name: cURL request
+        # Hit the webhook endpoint to rebuild  from the "main" branch
+        run: curl https://www.google.com
